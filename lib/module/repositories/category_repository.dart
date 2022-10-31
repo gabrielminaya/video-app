@@ -27,7 +27,13 @@ class CategoryRepository {
       );
 
       return records.map((record) {
-        return CategoryEntity(id: record.id, name: record.data['name']);
+        String? imageUrl;
+        if (record.data['image'].toString().isNotEmpty) {
+          final image = client.records.getFileUrl(record, record.data['image']);
+          imageUrl = "${client.baseUrl}${image.path}";
+        }
+
+        return CategoryEntity(id: record.id, name: record.data['name'], imageUrl: imageUrl);
       }).toList();
     } catch (e) {
       log(e.toString());
@@ -45,7 +51,7 @@ class CategoryRepository {
       );
 
       return records.map((record) {
-        return CategoryEntity(id: record.id, name: record.data['name']);
+        return CategoryEntity(id: record.id, name: record.data['name'], imageUrl: record.data['image']);
       }).toList();
     } catch (e) {
       log(e.toString());
