@@ -16,6 +16,8 @@ class UsersRepository {
   );
 
   Future<List<UserEntity>> getAllUsers() async {
-    return (await _client.users.getFullList()).map((user) => UserEntity(email: user.email)).toList();
+    return (await _client.users.getFullList())
+        .map((user) => UserEntity(email: user.email, admin: user.profile?.data['admin'] ?? false))
+        .toList();
   }
 }

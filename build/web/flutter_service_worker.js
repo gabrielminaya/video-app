@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "0ebf46de2e8a97cb0b7778e12dbaf1c2",
+  "version.json": "4f817e07f783e2f6d17cb32a43c57744",
 "splash/img/light-2x.png": "fc93342db464d1faf91abb6d2186e854",
 "splash/img/dark-4x.png": "357bf2f9f517bcb44d9aaa2ffc58e36d",
 "splash/img/light-3x.png": "af937546b1e9975e44f4940f8a41c0fe",
@@ -14,9 +14,9 @@ const RESOURCES = {
 "splash/img/light-1x.png": "6b7b1b87645067ddb24afacc63d6c18d",
 "splash/splash.js": "123c400b58bea74c1305ca3ac966748d",
 "splash/style.css": "2e6df68c18efc965e0beb1b72c5b4ae9",
-"index.html": "3a4bb877c79158f9de66eac6dac7f075",
-"/": "3a4bb877c79158f9de66eac6dac7f075",
-"main.dart.js": "33f1878e8324220a8c7bce8673ee8b0c",
+"index.html": "4c42d727189eaece883d78b4c1d565dd",
+"/": "4c42d727189eaece883d78b4c1d565dd",
+"main.dart.js": "90949c295853cc0680d7701faf37cc12",
 "flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "logo.png": "7c944bcc11198c22dd5b69caf3a1aa84",
@@ -25,7 +25,7 @@ const RESOURCES = {
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "25b0b7a230732c15273a7613affb5ebb",
-"assets/AssetManifest.json": "ce63ecc055edcc75c96b2032b5fa2f76",
+"assets/AssetManifest.json": "027a3ed5f7e3a119134ee48264e523b9",
 "assets/NOTICES": "200c1b4fa47b02d338be540967dc7cb9",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
@@ -34,6 +34,7 @@ const RESOURCES = {
 "assets/assets/logo.png": "7c944bcc11198c22dd5b69caf3a1aa84",
 "assets/assets/logo_small.png": "30a4119c35a1f9953d0274ba56a75ca1",
 "assets/assets/logo.svg": "d51d6fdc1fe29c4a3022877ed19676a4",
+"assets/assets/logo_small_header.png": "30a4119c35a1f9953d0274ba56a75ca1",
 "canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",

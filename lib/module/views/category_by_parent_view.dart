@@ -28,7 +28,7 @@ class _CategoryByParentViewState extends ConsumerState<CategoryByParentView> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: Text("SubCategoria de: ${widget.entity.name}"), centerTitle: false),
+      appBar: AppBar(title: Text(widget.entity.name), centerTitle: false),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

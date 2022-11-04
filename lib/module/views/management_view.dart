@@ -15,7 +15,7 @@ class ManagementView extends ConsumerWidget {
     final screenSize = MediaQuery.of(context).size;
     final colorScheme = Theme.of(context).colorScheme;
 
-    if ((authState as Authenticated).entity.id != "vmwwbvf7wie2hbe") {
+    if (!(authState as Authenticated).entity.admin) {
       return const Center(
         child: Text("Acceso restringido."),
       );
