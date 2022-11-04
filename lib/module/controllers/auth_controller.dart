@@ -46,6 +46,7 @@ class AuthController extends StateNotifier<AuthState> {
       state = Authenticated(
         ProfileEntity(
           id: result.user!.id,
+          admin: result.user!.profile?.data['admin'] ?? false,
           categories: List<String>.from(result.user?.profile?.data['categories'] ?? []),
         ),
       );

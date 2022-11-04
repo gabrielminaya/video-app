@@ -48,7 +48,16 @@ class _CategoryViewState extends ConsumerState<CategoryView> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Lista de reproducción"), centerTitle: false),
+      appBar: AppBar(
+        title: SizedBox(
+          height: 30,
+          child: Image.asset(
+            "assets/logo_small_header.png",
+            fit: BoxFit.contain,
+          ),
+        ),
+        centerTitle: false,
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
