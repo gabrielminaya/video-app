@@ -49,8 +49,10 @@ class _CategoryViewState extends ConsumerState<CategoryView> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         title: SizedBox(
-          height: 30,
+          height: 40,
           child: Image.asset(
             "assets/logo_small_header.png",
             fit: BoxFit.contain,
