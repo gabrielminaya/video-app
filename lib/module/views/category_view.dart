@@ -103,43 +103,40 @@ class _CategoryViewState extends ConsumerState<CategoryView> {
                       ],
                       Padding(
                         padding: const EdgeInsets.all(8),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Card(
-                                    child: TextButton(
-                                      child: Icon(Icons.category_rounded, color: colorScheme.primary),
-                                      onPressed: () => goToSubCategories(categoryEntity),
+                        child: InkWell(
+                          onTap: () => goToSubCategories(categoryEntity),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: Alignment.centerRight,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Card(
+                                      child: TextButton(
+                                        child: Icon(Icons.video_file_rounded, color: colorScheme.primary),
+                                        onPressed: () => goToVideos(categoryEntity),
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Card(
-                                    child: TextButton(
-                                      child: Icon(Icons.video_file_rounded, color: colorScheme.primary),
-                                      onPressed: () => goToVideos(categoryEntity),
-                                    ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            const Spacer(),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Card(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(3),
-                                  child: Text(
-                                    categoryEntity.name,
-                                    style: TextStyle(color: colorScheme.onSurface, fontSize: screenSize.height * 0.02),
+                              const Spacer(),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Card(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Text(
+                                      categoryEntity.name,
+                                      style:
+                                          TextStyle(color: colorScheme.onSurface, fontSize: screenSize.height * 0.02),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
