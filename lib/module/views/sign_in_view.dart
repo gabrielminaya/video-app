@@ -17,6 +17,8 @@ class SignInView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isOscureText = ref.watch(isOscureTextProvider);
     final screenSize = MediaQuery.of(context).size;
+    var shortestSide = screenSize.shortestSide;
+    final bool useMobileLayout = shortestSide < 600;
 
     void signIn() async {
       final isValidated = formKey.currentState?.saveAndValidate() ?? false;
@@ -45,7 +47,7 @@ class SignInView extends ConsumerWidget {
           onPressed: null,
           child: SizedBox(
             height: screenSize.height / 1.5,
-            width: screenSize.width / 3,
+            width: useMobileLayout ? screenSize.width / 1.2 : screenSize.width / 3,
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(

@@ -39,6 +39,9 @@ class _CategoryViewState extends ConsumerState<CategoryView> {
     final screenSize = MediaQuery.of(context).size;
     final colorScheme = Theme.of(context).colorScheme;
 
+    var shortestSide = screenSize.shortestSide;
+    final bool useMobileLayout = shortestSide < 600;
+
     void goToSubCategories(CategoryEntity entity) {
       context.push("/category", extra: entity);
     }
@@ -81,8 +84,8 @@ class _CategoryViewState extends ConsumerState<CategoryView> {
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(20),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 5,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: useMobileLayout ? 1 : 5,
                 childAspectRatio: 18 / 10,
               ),
               itemCount: parentCategories.length,

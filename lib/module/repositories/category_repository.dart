@@ -22,7 +22,7 @@ class CategoryRepository {
       final records = await client.records.getFullList(
         'categories',
         batch: 200,
-        sort: '-created',
+        sort: '-name',
         filter: 'id = $formattedCategories',
       );
 

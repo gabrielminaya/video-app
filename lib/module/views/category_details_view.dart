@@ -22,6 +22,8 @@ class _CategoryDetailsViewState extends ConsumerState<CategoryDetailsView> {
     final parentCategoryDetailsAsync = ref.watch(categoryDetailsControllerProvider(widget.entity));
     final screenSize = MediaQuery.of(context).size;
     final colorScheme = Theme.of(context).colorScheme;
+    var shortestSide = screenSize.shortestSide;
+    final bool useMobileLayout = shortestSide < 600;
 
     return Scaffold(
       appBar: AppBar(title: Text("Videos de: ${widget.entity.name}"), centerTitle: false),
@@ -58,8 +60,8 @@ class _CategoryDetailsViewState extends ConsumerState<CategoryDetailsView> {
 
                 return GridView.builder(
                   padding: const EdgeInsets.all(20),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 5,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: useMobileLayout ? 1 : 5,
                     childAspectRatio: 18 / 10,
                   ),
                   itemCount: parentCategoryDetails.length,

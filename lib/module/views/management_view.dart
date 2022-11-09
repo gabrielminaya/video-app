@@ -12,8 +12,11 @@ class ManagementView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authControllerProvider);
-    final screenSize = MediaQuery.of(context).size;
+
     final colorScheme = Theme.of(context).colorScheme;
+    final screenSize = MediaQuery.of(context).size;
+    var shortestSide = screenSize.shortestSide;
+    final bool useMobileLayout = shortestSide < 600;
 
     if (!(authState as Authenticated).entity.admin) {
       return const Center(
@@ -29,7 +32,7 @@ class ManagementView extends ConsumerWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: GridView.count(
-          crossAxisCount: 4,
+          crossAxisCount: useMobileLayout ? 1 : 4,
           childAspectRatio: 16 / 9,
           children: [
             Card(
