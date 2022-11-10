@@ -78,30 +78,42 @@ class _CategoryDetailsViewState extends ConsumerState<CategoryDetailsView> {
                             log(e.toString());
                           }
                         },
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [Icon(Icons.video_file_rounded, color: colorScheme.onPrimary)],
-                                ),
-                              ),
-                              const Spacer(),
-                              Align(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  categoryEntity.name,
-                                  style: TextStyle(
-                                    color: colorScheme.onPrimary,
-                                    fontSize: screenSize.height * 0.02,
-                                  ),
+                        child: Stack(
+                          children: [
+                            if (categoryEntity.imageUrl != null) ...[
+                              Positioned.fill(
+                                child: Image.network(
+                                  categoryEntity.imageUrl!,
+                                  fit: BoxFit.fill,
                                 ),
                               ),
                             ],
-                          ),
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [Icon(Icons.video_file_rounded, color: colorScheme.onPrimary)],
+                                    ),
+                                  ),
+                                  const Spacer(),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      categoryEntity.name,
+                                      style: TextStyle(
+                                        color: colorScheme.onPrimary,
+                                        fontSize: screenSize.height * 0.02,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );

@@ -67,34 +67,45 @@ class _CategoryByParentViewState extends ConsumerState<CategoryByParentView> {
 
                     return Card(
                       color: colorScheme.primary,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
+                      child: InkWell(
+                        onTap: () => goToSubCategories(categoryEntity),
+                        child: Stack(
                           children: [
-                            Align(
-                              alignment: Alignment.centerRight,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
+                            if (categoryEntity.imageUrl != null) ...[
+                              Positioned.fill(
+                                child: Image.network(
+                                  categoryEntity.imageUrl!,
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ],
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
                                 children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: Icon(Icons.category_rounded, color: colorScheme.onPrimary),
-                                    onPressed: () => goToSubCategories(categoryEntity),
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Card(
+                                          child: TextButton(
+                                            child: Icon(Icons.video_file_rounded, color: colorScheme.primary),
+                                            onPressed: () => goToVideos(categoryEntity),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  const SizedBox(width: 10),
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: Icon(Icons.video_file_rounded, color: colorScheme.onPrimary),
-                                    onPressed: () => goToVideos(categoryEntity),
+                                  const Spacer(),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(categoryEntity.name,
+                                        style: TextStyle(
+                                            color: colorScheme.onPrimary, fontSize: screenSize.height * 0.02)),
                                   ),
                                 ],
                               ),
-                            ),
-                            const Spacer(),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(categoryEntity.name,
-                                  style: TextStyle(color: colorScheme.onPrimary, fontSize: screenSize.height * 0.02)),
                             ),
                           ],
                         ),
